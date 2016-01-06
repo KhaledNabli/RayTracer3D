@@ -259,7 +259,6 @@
     <ResourceCompile Include="RayTraceW32.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="bitmap1.bmp" />
     <Image Include="RayTraceW32.ico" />
     <Image Include="small.ico" />
   </ItemGroup>

@@ -17,6 +17,7 @@ struct EngineSettings {
 	int tileSize = 16;
 	int xTiles = 10;
 	int yTiles = 10;
+	double maxVariance = 0.1;
 };
 
 class Engine
@@ -29,17 +30,22 @@ private:
 	int screenWidth;
 	int totalTiles;
 	int finishedTiles;
+	int status;
+	unsigned long raysProduced;
 
 public:
 	int* tileStatusMap;
 	RGBType* rendererBuffer;
 
 	Engine(EngineSettings* settings, Scene* scene);
+	void Reload();
 	~Engine();
 
 	RGBType* renderTile(int tileId, onRenderFinish callback);
 
 	RGBType* render();
+
+	void startRenderThreads();
 
 	void renderThread(int threadId, int* tileList, int listSize);
 	void saveOutput();

@@ -92,8 +92,8 @@ void Camera::setupCamera() {
 
 Vect Camera::getPixelDirection(double x, double y) {
 	double rayOffsetX, rayOffsetY;
-	x += ((double) rand() / (RAND_MAX));
-	y += ((double) rand() / (RAND_MAX));
+	x += ((double) rand() / (RAND_MAX)) * 0.7 + 0.15;
+	y += ((double) rand() / (RAND_MAX)) * 0.7 + 0.15;
 
 	rayOffsetX = (x / screenWidth) - 0.5;
 	rayOffsetY = (y / screenHeight) - 0.5;
