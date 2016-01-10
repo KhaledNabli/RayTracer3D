@@ -177,7 +177,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	{
 		PAINTSTRUCT ps;
 		HDC hdc;
-		LPRECT updateRect;
+		LPRECT updateRect = nullptr;
 
 		if (renderingEngine == nullptr) {
 			break;
@@ -245,13 +245,13 @@ void renderScene() {
 	scene->getCamera()->setupCamera();
 
 	settings->minRaysPerPixel = 1;
-	settings->maxRayPerPixel = 2;
-	settings->maxBounces = 1;
-	settings->threads = 2;
+	settings->maxRayPerPixel = 200;
+	settings->maxBounces = 5;
+	settings->threads = 8;
 	settings->xTiles = WIDTH_TILES;
 	settings->yTiles = HEIGHT_TILES;
 	settings->tileSize = TILE_SIZE;
-	settings->maxVariance = 0.0000001;
+	settings->maxVariance = 0.0001;
 
 	if (renderingEngine == nullptr) {
 		renderingEngine = new Engine(settings, scene);
